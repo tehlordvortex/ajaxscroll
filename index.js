@@ -13,7 +13,8 @@
       if (this.readyState === 4 && this.status === 200) {
         var hashElement = document.getElementById(location.hash.slice(1));
         if (hashElement) {
-          window.scrollTo(0, hashElement.clientTop);
+          var rect = hashElement.getBoundingClientRect();
+          window.scrollTo(rect.left, rect.top);
         }
       }
     });
