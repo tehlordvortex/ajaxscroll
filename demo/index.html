@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AJAXScroll test</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <h1 id="top">Eiusmod commodo aliqua esse adipisicing pariatur consequat.</h1>
+  <hr>
+  <article id="body">
+  </article>
+  <hr>
+  <h2 id="bottom">Cillum anim adipisicing esse excepteur Lorem consequat elit deserunt sunt do fugiat.</h2>
+  <script src="../index.js"></script>
+  <script>
+    var xmlhttp = new XMLHttpRequest();
+    var next = 'text';
+    AJAXScroll.attach(xmlhttp);
+    xmlhttp.onreadystatechange = function () {
+      if (this.readyState === 4 && this.status === 200) {
+        document.getElementById("body").innerHTML += this.responseText;
+        if (next) {
+          if (next === 'text') {
+            next = 'conclusion';
+            xmlhttp.open("GET", "ajax_section_text.html"), true;
+            xmlhttp.send();
+          } else if (next === 'conclusion') {
+            next = null;
+            xmlhttp.open("GET", "ajax_section_conclusion.html"), true;
+            xmlhttp.send();
+          }
+        }
+      }
+    };
+    xmlhttp.open("GET", "ajax_section_intro.html", true);
+    xmlhttp.send();
+  </script>
+</body>
+</html>
