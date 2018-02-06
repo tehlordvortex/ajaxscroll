@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Scroll to location.hash after AJAX requests",
   "main": "index.js",
-  "repository": "https://github.com/tehlordvortex/ajaxscroll",
+  "repository": "https://github.com/tehlordvortex/ajaxscroll.git",
   "author": "tehlordvortex",
   "license": "MIT",
   "private": false
